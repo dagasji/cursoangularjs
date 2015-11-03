@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="libs/angular.js"></script>
+
+</head>
+<body ng-app>
+
+
+<div ng-init="personas = ['pepito', 'jose', 'antonio']">
+
+	<p ng-repeat="persona in personas" ng-init="paso=$index;">
+		Elemento con id {{paso}}: <span>{{persona}}</span>
+	</p>	
+</div>
+
+</body>
+</html>

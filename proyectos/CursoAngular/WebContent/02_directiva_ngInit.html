@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="libs/angular.js"></script>
+
+</head>
+<body ng-app ng-init="precio=5; cantidad=3">
+
+Coste total {{precio*cantidad}}
+
+<div ng-init="nombre='pepito'; apellido='Perez'">
+	Nombre de la persona: {{nombre + ' ' + apellido}}	
+</div>
+
+<div ng-init="persona = {nombre:'Pepito',  apellido:'Perez'}">
+	Nombre de la persona (objeto): {{persona.nombre}}	
+</div>
+
+<div ng-init="personas = ['pepito', 'jose', 'antonio']">
+	Nombre de la persona (array): {{personas[1]}}	
+</div>
+
+</body>
+</html>
