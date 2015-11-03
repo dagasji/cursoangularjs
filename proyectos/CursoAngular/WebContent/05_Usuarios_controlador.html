@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="libs/angular.js"></script>
+
+</head>
+<body ng-app ng-controller="controladorSimple">
+
+	
+	<script>
+		function controladorSimple($scope) {
+			$scope.usuarios = [{nombre: 'Antonio', ciudad: 'Málaga'}, 
+			       			{nombre: 'Juan', ciudad : 'Cadiz'}];
+			
+			$scope.aniadirUsuario = function() {
+					$scope.usuarios.push({nombre: $scope.inputNombre, ciudad: $scope.inputCiudad});
+					console.info($scope.inputNombre);
+				}
+
+		}
+	
+	</script>
+
+	<h2>Pensamientos</h2>
+
+	<div>
+
+		<input type="text" ng-model="inputNombre"><br/>
+		<input type="text" ng-model="inputCiudad"><br/> 
+		<button ng-click="aniadirUsuario()">Añadir Usuario</button>
+
+		<ul>
+			<li ng-repeat="usuario in usuarios" ng-init="paso=$index;">
+				{{usuario.nombre}} - {{usuario.ciudad}}
+			</li>
+		</ul>
+
+	</div>
+
+
+
+</body>
+</html>

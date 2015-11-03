@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="libs/angular.js"></script>
+
+</head>
+<body ng-app ng-controller="controladorSimple">
+
+	<h2>Lista de nombres</h2>
+
+
+	<ul>
+		<li ng-repeat="nombre in nombres" ng-init="paso=$index;">
+			{{nombre}}
+		</li>
+	</ul>
+	
+	
+	<script>
+		function controladorSimple($scope) {
+			$scope.nombres = ["Uno", "Dos", "Tres"];
+
+		}
+
+	
+	</script>
+
+</body>
+</html>

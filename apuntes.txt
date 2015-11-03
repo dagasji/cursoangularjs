@@ -1,14 +1,21 @@
  Directivas:
  
- ng-app  
+- ng-app  
  Directiva principal de aplicación angular js
  
- ng-model
+- ng-model
  Si la ponemos en un input, se asocia al modelo
  
- ng-init
+- ng-init
  Se podrán inicializar variables para despues ser usadas con la notación {{nombre_var}}
  
  ng-init="nombre='pepito'; apellido='Perez'"
  
+- ng-repeat
+
+##############################################################################################################
  
+ Controladores:
+ 
+ - Realizar tareas de inicializacion
+ - 
