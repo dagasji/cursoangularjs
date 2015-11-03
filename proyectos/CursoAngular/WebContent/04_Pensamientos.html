@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="libs/angular.js"></script>
+
+</head>
+<body ng-app>
+
+	<h2>Pensamientos</h2>
+
+	<div ng-init="pensamientos = []">
+
+		<input type="text" ng-model="nuevoPensamiento"><br/> 
+		<input type="button" value="Añadir" ng-click="pensamientos.push(nuevoPensamiento);ultimoPensamiento=nuevoPensamiento; nuevoPensamiento=''; ">
+
+		<ul>
+			<li ng-repeat="pensamiento in pensamientos" ng-init="paso=$index;">
+				Pensamiento id {{paso}}: <span>{{pensamiento}}</span>
+			</li>
+		</ul>
+
+	</div>
+
+	<div>
+		<input type="text" readonly="readonly" ng-model="ultimoPensamiento">
+	</diV>
+
+</body>
+</html>

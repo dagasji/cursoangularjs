@@ -9,12 +9,15 @@
 </head>
 <body ng-app>
 
-
 <div ng-init="personas = ['pepito', 'jose', 'antonio']">
-
-	<p ng-repeat="persona in personas" ng-init="paso=$index;">
-		Elemento con id {{paso}}: <span>{{persona}}</span>
-	</p>	
+	
+	<div  >
+		<ul>
+			<li ng-repeat="persona in personas" ng-init="paso=$index;">Elemento con id {{paso}}: <span>{{persona}}</span>
+		</ul>
+	</div>
+	
+		
 </div>
 
 </body>
