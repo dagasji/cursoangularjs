@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="libs/angular.js"></script>
+
+</head>
+<body ng-app="miApp" ng-controller="miControlador">
+
+	
+	<script>
+		function controladorSimple($scope) {
+			$scope.usuarios = [{nombre: 'Antonio', nacionalidad: 'Fancesa'}, 
+			       			{nombre: 'Juan', nacionalidad: 'Española'}];
+			
+			$scope.addPersona= function() {
+					$scope.usuarios.push({nombre: $scope.inputNombre, nacionalidad: $scope.inputNacionalidad});					
+			};
+
+			$scope.removeList = function() {
+				$scope.usuarios =  [];
+			};
+
+			$scope.removeItem = function(usuario){
+				var index = $scope.usuarios.indexOf(usuario);
+				$scope.usuarios.splice(index, 1); 
+			  }
+
+
+		}
+
+		var app = angular.module("miApp", []);
+		app.controller("miControlador", controladorSimple);
+	
+	</script>
+
+	<h2>Usuarios</h2>
+	
+	<div>
+
+		<p>Persona: <input type="text" ng-model="inputNombre"></p>
+		<p>Nacionalidad: <input type="text" ng-model="inputNacionalidad"></p> 
+		<p><button ng-click="addPersona()">Añadir</button>
+		<button ng-click="removeList()">Borrar</button></p>
+		
+		<br/>
+		
+		<input type="radio" ng-model="orden" value="nombre">nombre</input>
+		<input type="radio" ng-model="orden" value="nacionalidad">nacionalidad</input>
+		
+		<table>
+			<tr ng-repeat="usuario in usuarios | orderBy : orden" ng-init="paso=$index;">
+				<td>{{usuario.nombre}}</td>
+				<td>{{usuario.nacionalidad}}</td>
+				<td><button ng-click="removeItem(usuario)">Borrar</button></p></td>
+			</tr>
+		</table>
+
+	</div>
+
+
+
+</body>
+</html>
