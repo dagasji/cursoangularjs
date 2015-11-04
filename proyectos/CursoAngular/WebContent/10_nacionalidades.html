@@ -28,7 +28,7 @@
 				$scope.usuarios.splice(index, 1); 
 			  }
 
-
+        
 		}
 
 		var app = angular.module("miApp", []);
@@ -47,11 +47,14 @@
 		
 		<br/>
 		
+		<p>orden: 		
 		<input type="radio" ng-model="orden" value="nombre">nombre</input>
-		<input type="radio" ng-model="orden" value="nacionalidad">nacionalidad</input>
+		<input type="radio" ng-model="orden" value="nacionalidad">nacionalidad</input></p>
+		
+		<p>Filtro: <input type="text" ng-model="filtro"/></p>
 		
 		<table>
-			<tr ng-repeat="usuario in usuarios | orderBy : orden" ng-init="paso=$index;">
+			<tr ng-repeat="usuario in usuarios | orderBy : orden | filter: filtro" ng-init="paso=$index;">
 				<td>{{usuario.nombre}}</td>
 				<td>{{usuario.nacionalidad}}</td>
 				<td><button ng-click="removeItem(usuario)">Borrar</button></p></td>

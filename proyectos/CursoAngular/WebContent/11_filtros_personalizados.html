@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="libs/angular.js"></script>
+
+</head>
+<body ng-app="miApp" ng-controller="filtroPersonalizado">
+
+	
+	<script>
+		function controladorSimple($scope) {
+			$scope.texto = "Esto es un texto de prueba";
+        
+		}		
+
+		var app = angular.module("miApp", []);
+		
+		app.controller("filtroPersonalizado", controladorSimple);
+
+		app.filter('toUpperCase', function(){
+
+			console.info('1');
+			
+			return function(text) {
+				if (text) {
+					return text.toUpperCase();
+				}
+
+			}  
+
+		});
+	
+	</script>
+
+	<h2>Usuarios</h2>
+	
+	<div>
+
+		<p>{{texto | toUpperCase}}</p>
+
+
+	</div>
+
+
+
+</body>
+</html>
