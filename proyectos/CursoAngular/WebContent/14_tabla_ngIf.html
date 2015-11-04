@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+<style type="text/css">
+
+	table, td {
+		border: 1px solid gray;
+		border-collapse: collapse;
+		padding:  5px;	
+	
+	}
+	
+	.odd {
+	
+		background-color: #f1f1f1;
+	}
+	
+</style>
+
+</head>
+<body ng-app="miApp" ng-controller="miControlador">
+
+	
+	<script>
+		function controladorSimple($scope) {
+			$scope.usuarios = [{nombre: 'Antonio', nacionalidad: 'Fancesa'}, 
+			       			{nombre: 'Juan', nacionalidad: 'Española'}];
+			
+			        
+		}
+
+		var app = angular.module("miApp", []);
+		app.controller("miControlador", controladorSimple);
+	
+	</script>
+
+	<h2>Usuarios</h2>
+	
+	<div>
+
+		
+		<table>
+			<tr ng-repeat="usuario in usuarios">
+				<td ng-if="$odd" class="odd">{{usuario.nombre}}</td>
+				<td ng-if="$even" class="even">{{usuario.nombre}}</td>
+				<td ng-if="$odd" class="odd">{{usuario.nacionalidad}}</td>
+				<td ng-if="$even" class="even">{{usuario.nacionalidad}}</td>				
+			</tr>
+		</table>
+
+	</div>
+
+
+
+</body>
+</html>
