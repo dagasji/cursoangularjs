@@ -19,3 +19,41 @@
  
  - Realizar tareas de inicializacion
  - 
+
+
+############################################################################################################## 
+ 
+ FILTROS
+ 
+- Para filtrar sobre un array de objetos. filtra por todos los campos
+ 
+ ng-repeat="persona in personas | filter: inputNombre"
+ 
+- Para filtrar por un campo en concreto
+ 
+ ng-repeat="persona in personas | filter: {nombre :inputNombre}"
+
+
+ ############################################################################################################## 
+ 
+ORDENACION
+
+- Orden simple
+ 
+  <li ng-repeat="persona in personas | orderBy: 'id' " ng-init="paso=$index;">
+ 
+ - Orden por dos campos
+ 
+  <li ng-repeat="persona in personas | orderBy: ['id','nombre'] " ng-init="paso=$index;">
+ 
+- Orden con reverse (basta con poner el guion "-" delante del nombre del campo
+ 
+  <li ng-repeat="persona in personas | orderBy: ['-id','nombre'] " ng-init="paso=$index;">
+  
+############################################################################################################## 
+
+
+
+  
+ 
+ 

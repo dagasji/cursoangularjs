@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="libs/angular.js"></script>
+
+</head>
+<body ng-app ng-init="objeto = {atributo1: 'uno', atributo2:'dos'}">
+
+	
+
+	<h2>Filtros</h2>
+	
+	<div>
+		
+		<p>Filtro de moneda: {{100 / 3 | currency}}</p>
+		<p>Filtro de number: {{100 / 3 | number:5}}</p>
+		<p>Filtro de fecha: <input type="date" ng-model="fecha"/></p>
+		    sin formato: {{fecha}} <br/>
+		    con formato: {{fecha | date:"shortDate"}} <br/>
+		    con formato: {{fecha | date: "dd-MM-yyyy"}} <br/>
+		<p>Filtro de JSON: {{objeto | json}}</p>
+		
+		<p>Filtro de mayuscula: {{"Esto es un texto en mayusculas" | uppercase}}</p>
+		<p>Filtro de minuscula: {{"Esto es un texto en MINUSCULAS" | lowercase}}</p>
+	</div>
+
+
+
+</body>
+</html>
