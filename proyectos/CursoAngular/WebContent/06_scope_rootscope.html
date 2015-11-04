@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="libs/angular.js"></script>
+
+</head>
+<body ng-app >
+
+	
+	<script>
+		function controladorSimple($scope, $rootScope) {
+			$scope.variable= "esto es una variable";
+			$rootScope.variable= "esto es una variable rootScope";
+			
+			$rootScope.variableRoot= "otra variable del rootScope";
+		}
+	
+	</script>
+
+	
+
+	<div id="padre">
+	
+		<div id="hijo" ng-controller="controladorSimple">
+			hijo: {{variable}}	
+			{{variableRoot}}
+			{{$parent.variable}}
+			
+			
+		</div>
+	
+		padre: {{variable}}
+		{{$root.variableRoot}}
+
+	</div>
+
+
+
+</body>
+</html>

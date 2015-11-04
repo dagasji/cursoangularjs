@@ -7,7 +7,7 @@
 <script type="text/javascript" src="libs/angular.js"></script>
 
 </head>
-<body ng-app ng-controller="controladorSimple">
+<body ng-app="miApp" ng-controller="miControlador">
 
 	
 	<script>
@@ -21,10 +21,13 @@
 				}
 
 		}
+
+		var app = angular.module("miApp", []);
+		app.controller("miControlador", controladorSimple);
 	
 	</script>
 
-	<h2>Usuarios</h2>
+	<h2>Modules</h2>
 
 	<div>
 
