@@ -12,6 +12,7 @@
 		border: 1px solid gray;
 		border-collapse: collapse;
 		padding:  5px;	
+		width: 400px;
 	
 	}
 	
@@ -137,12 +138,20 @@
 	
 	</script>
 
-	<h2>Usuarios</h2>
+	<h2>Productos</h2>
 	
 	<div>
 	
 		<table>
-			<tr ng-repeat="producto in productos" ng-init="paso=$index;">
+			<tr>
+				<th>Nombre</th>
+				<th>Cantidad</th>
+				<th>Stock</th>
+				<th>Eliminar</th>
+				<th>Editar</th>
+				
+			</tr>
+			<tr ng-repeat="producto in productos" ng-init="paso=$index;" class="{{paso % 2 == 0 ? 'event' : 'odd' }} ">
 				<td>{{producto.nombre}}</td>
 				<td>{{producto.cantidad}}</td>
 				<td>{{producto.stock}}</td>
