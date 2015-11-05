@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+
+</head>
+<body ng-app="miApp" ng-controller="miControlador">
+
+	
+	<script>
+		
+
+
+		function miControlador($scope, $http) {
+
+			$scope.paises = [];
+
+			$http.get("http://restcountries.eu/rest/v1/region/europe").success(function(respuesta){
+	            
+	            $scope.paises = respuesta;
+	        });					
+        
+		}
+		
+		
+		var app = angular.module("miApp", []);				
+		
+		app.controller("miControlador", miControlador);
+		
+	
+	</script>
+
+	<h2>Factory</h2>
+	
+	<div>
+
+	
+		<table>
+			<tr ng-repeat="pais in paises">
+				<td>{{pais.name}}</td>				
+			</tr>
+		</table>
+
+	</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+
+</head>
+<body ng-app="miApp" ng-controller="miControlador">
+
+	
+	<script>
+		
+
+
+		function miControlador($scope, $http) {
+
+			console.info("entro");
+			$http.get("http://www.w3schools.com/angular/customers.php").success(function(respuesta){
+	            console.info(respuesta.records);
+	            $scope.nombres = respuesta.records;
+	            
+	        });					
+        
+		}
+		
+		
+		var app = angular.module("miApp", []);				
+		
+		app.controller("miControlador", miControlador);
+		
+	
+	</script>
+
+	<h2>Servicio Rest</h2>
+	
+	<div>
+
+	
+		<ul>
+			<li ng-repeat="nombre in nombres">
+				{{nombre.Name}}				
+			</li>
+		</ul>
+
+	</div>
+
+
+
+</body>
+</html>

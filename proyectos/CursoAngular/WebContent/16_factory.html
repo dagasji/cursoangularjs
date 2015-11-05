@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+
+</head>
+<body ng-app="miApp" ng-controller="miControlador">
+
+	
+	<script>
+		
+
+		function factoria() {
+			
+			var factoria = {};
+
+			var usuarios = [{nombre: 'Antonio', nacionalidad: 'Fancesa'}, 
+				       			{nombre: 'Juan', nacionalidad: 'Española'},
+				       			{nombre: 'Laura', nacionalidad: 'Española'}];
+
+			factoria.getUsuarios = function() {
+				return usuarios;
+			}
+
+			factoria.addUsuario = function(usuario) {
+				usuarios.push(usuario);
+			}
+
+			return factoria;
+			
+		}
+
+		function miControlador($scope, miFactoria) {
+
+			$scope.usuarios = [];
+			init();
+
+			function init() {
+				$scope.usuarios = miFactoria.getUsuarios();
+			}
+
+			$scope.addUsuario = function() {
+				miFactoria.addUsuario({nombre: $scope.inputNombre, nacionalidad: $scope.inputNacionalidad});
+				//$scope.usuarios = miFactoria.getUsuarios();
+			}			
+        
+		}
+
+		
+		var app = angular.module("miApp", []);
+		app.factory("miFactoria", factoria);		
+		
+		app.controller("miControlador", miControlador);
+		
+	
+	</script>
+
+	<h2>Factory</h2>
+	
+	<div>
+	
+		<p>Nombre: <input type="text" ng-model="inputNombre"></p>
+		<p>Nacionalidad: <input type="text" ng-model="inputNacionalidad"></p> 
+		<p><button ng-click="addUsuario()">Añadir</button>
+	
+		<table>
+			<tr ng-repeat="usuario in usuarios">
+				<td>{{usuario.nombre}}</td>
+				<td>{{usuario.nacionalidad}}</td>
+			</tr>
+		</table>
+
+	</div>
+
+
+
+</body>
+</html>
