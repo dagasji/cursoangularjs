@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
+<script src= "script.js"></script>
+</head>
+<body ng-app="miApp" ng-controller="miController">
+
+<h1>Routing con Angular</h1>
+
+<ul>
+	<li><a href="#">Inicio</a>
+	<li><a href="#acerca">Acerca de...</a>
+	<li><a href="#contacto">Contacto</a>
+	
+	<div id="main">
+		<div ng-view>
+			<!-- Aqui vamos a inyectar el código -->
+		</div>
+	
+	</div>
+
+</ul>
+
+</body>
+</html>
