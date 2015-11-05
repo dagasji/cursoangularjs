@@ -1,0 +1,12 @@
+<table >	
+	<tr>
+		<th>Id</th>
+		<th>Localizaci&oacute;n</th>
+		<th>Magitud</th>
+	</tr>
+	<tr ng-repeat="terremoto in terremotos" class="{{paso % 2 == 0 ? 'event' : 'odd' }} " ng-init="paso=$index;">
+		<td><a href="#detalle/{{terremoto.id}}">{{terremoto.id}}</a></td>	
+		<td>{{terremoto.properties.place}}</td>
+		<td>{{terremoto.properties.mag}}</td>
+	</tr>
+</table>
