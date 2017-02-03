@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+
+<script src="node_modules/angular/angular.js"></script> 
+<script src="node_modules/angular-aria/angular-aria.js"></script> 
+<script src="node_modules/angular-animate/angular-animate.js"></script> 
+<script src="node_modules/angular-material/angular-material.js"></script>
+
+
+</head>
+<body ng-app="miApp" ng-controller="miControlador as vm">
+
+	<script>
+
+		function controladorSimple($mdDialog) {
+
+			var vm = this;
+
+			vm.nombre ='Mostrar Alert';
+
+			vm.showAlert = function(ev) {
+			    // Appending dialog to document.body to cover sidenav in docs app
+			    // Modal dialogs should fully cover application
+			    // to prevent interaction outside of dialog
+			    $mdDialog.show(
+			      $mdDialog.alert()			        
+			        .clickOutsideToClose(true)
+			        .title('Prueba de Alert')
+			        .textContent('You can specify some description text in here.')
+			        .ariaLabel('Alert Dialog Demo')
+			        .ok('Aceptar')
+			        .targetEvent(ev)
+			    );
+			  };
+			
+		}
+		
+
+		var app = angular.module("miApp", [ 'ngMaterial' ]);
+
+		app.controller("miControlador", controladorSimple);
+
+
+		
+					
+		
+	
+	</script>
+
+
+	<div class="dialog-demo-content" layout="row">
+	
+		<md-button class="md-raised md-primary" ng-click="vm.showAlert()">{{vm.nombre}}</md-button>
+		
+			
+		<md-button class="md-primary" ng-href="{{googleUrl}}" target="_blank">Primary Link</md-button>
+		
+		<md-table-pagination>
+		
+		</md-table-pagination>
+	</div>		
+</body>
+</html>
