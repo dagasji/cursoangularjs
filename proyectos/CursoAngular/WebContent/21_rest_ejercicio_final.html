@@ -46,11 +46,11 @@
 		function miControlador($scope, $http) {
 
 			var url_servicio = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson";
-
-			console.info('llego');
-			
+								
 			$http.get(url_servicio).success(function(respuesta){
 	            console.info(respuesta.features);
+
+	            console.info(new Date(respuesta.features[0].properties.time));
 	            $scope.terremotos= respuesta.features;
 	            
 	        });		

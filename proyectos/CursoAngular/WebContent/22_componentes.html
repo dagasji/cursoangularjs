@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ejemplo Componentes</title>
+
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+<script src= "./22_componentes/cuenta-clics/cuenta-clics.js"></script>
+
+<style type="text/css">
+
+	table, td {
+		border: 1px solid gray;
+		border-collapse: collapse;
+		padding:  5px;	
+		width: 400px;
+	
+	}
+	
+	.odd {
+	
+		background-color: #f1f1f1;
+	}
+	
+</style>
+
+
+</head>
+<body ng-app="miApp" ng-controller="miControlador as vm">
+	
+	<script>
+
+		function controladorSimple() {
+			var vm = this;
+			vm.usuario = {nombre: 'Miguel', ciudad: 'Málaga'};
+			vm.nombre = 'dani'
+
+		}			
+		
+		var app = angular.module("miApp",  ["cuentaClics"]);				
+		app.controller("miControlador", controladorSimple);
+
+		
+	
+	</script>
+
+	<h2>Ejemplo componentes</h2>
+	<h1>Valor de usuario.nombre fuera del componente: {{vm.usuario.nombre}}</h1>
+	<h1>Valor de nombre fuera del componente: {{vm.nombre}}</h1>
+	
+	
+	<cuenta-clics numero="2" usuario="vm.usuario" nombre="vm.nombre"></cuenta-clics>
+
+
+
+</body>
+</html>
